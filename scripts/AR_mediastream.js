@@ -60,7 +60,7 @@
     // This is the canvas that we draw our input image on & pass
     // to the detector to analyse for markers...
     var inputCapture = $('#inputCapture')[0];
-	
+
     // Set up another three.js scene that just draws the inputCapture...
     var inputCamera = new THREE.Camera();
     var inputScene = new THREE.Scene();
@@ -82,19 +82,35 @@
 
 	// Get permission to use the webcam video stream as input to the detector
 	// (Otherwise we can fallback to a static image for the input)
-    var input;
-    navigator.getUserMedia({ 'video': true }, function (stream) {
-    	input = $('#inputStream')[0];
-    	input.src = window.URL.createObjectURL(stream);
 
-        // Start the animation loop (see below)
-    	jsFrames.start();
-    }, function () {
-    	alert("Couldn't access webcam. Fallback to static image");
-    	input = $('#inputImage')[0];
-    	jsFrames.start();
-    });
+		var input;
 
+		navigator.mediaDevices.enumerateDevices()
+		.then(function(devices) {
+			var deviceId = null;
+			devices.forEach(function(device){ if(device.label.indexOf('back') >= 0) deviceId=device.deviceId; });
+			navigator.getUserMedia({
+				video: deviceId ? {
+	        optional: [{
+	            sourceId: "64-character-alphanumeric-source-id-here"
+	        }]
+	    	} : true
+			}, function (stream) {
+	    	input = $('#inputStream')[0];
+	    	input.src = window.URL.createObjectURL(stream);
+
+	        // Start the animation loop (see below)
+	    	jsFrames.start();
+	    }, function () {
+	    	alert("Couldn't access webcam. Fallback to static image");
+	    	input = $('#inputImage')[0];
+	    	jsFrames.start();
+	    });
+		})
+		.catch(function(err) {
+			alert(err.name + ": " + error.message);
+		});
+    
     // The animation loop...
     // (jsFrames comes from here - https://github.com/ianreah/jsFrames
     // but it's mostly just requestAnimationFrame wrapped up with a
