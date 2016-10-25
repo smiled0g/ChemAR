@@ -17,7 +17,7 @@
     var height = screen.height;
 
 		$('#inputStream, #inputImage, #inputCapture, #debugCanvas')
-			.attr('width', screen.width
+			.attr('width', screen.width)
 			.attr('height', screen.height);
 
     // Set up the JSARToolkit detector...
