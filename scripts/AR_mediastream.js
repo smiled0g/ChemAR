@@ -92,7 +92,7 @@
 			navigator.getUserMedia({
 				video: deviceId ? {
 	        optional: [{
-	            sourceId: "64-character-alphanumeric-source-id-here"
+	            sourceId: deviceId
 	        }]
 	    	} : true
 			}, function (stream) {
@@ -110,7 +110,7 @@
 		.catch(function(err) {
 			alert(err.name + ": " + error.message);
 		});
-    
+
     // The animation loop...
     // (jsFrames comes from here - https://github.com/ianreah/jsFrames
     // but it's mostly just requestAnimationFrame wrapped up with a
