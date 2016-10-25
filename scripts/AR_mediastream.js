@@ -13,12 +13,12 @@
         $("#debugCanvas").show();
     }
 
-    var width = screen.width;
-    var height = screen.height;
+    var width = 720;
+    var height = 1280;
 
 		$('#inputStream, #inputImage, #inputCapture, #debugCanvas')
-			.attr('width', screen.width)
-			.attr('height', screen.height);
+			.attr('width', 720)
+			.attr('height', 1280);
 
     // Set up the JSARToolkit detector...
     // ...this is what analyses the canvas images for AR markers
@@ -96,6 +96,8 @@
 			navigator.getUserMedia({video: { optional: [{ sourceId: deviceId }]}}, function (stream) {
 	    	input = $('#inputStream')[0];
 	    	input.src = window.URL.createObjectURL(stream);
+				window.ss = stream;
+				input = $('#inputStream')
 
 	        // Start the animation loop (see below)
 	    	jsFrames.start();
