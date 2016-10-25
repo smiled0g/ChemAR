@@ -14,11 +14,11 @@
     }
 
     var width = 720;
-    var height = 1280;
+    var height = 960;
 
 		$('#inputStream, #inputImage, #inputCapture, #debugCanvas')
-			.attr('width', 720)
-			.attr('height', 1280);
+			.attr('width', width)
+			.attr('height', height);
 
     // Set up the JSARToolkit detector...
     // ...this is what analyses the canvas images for AR markers
