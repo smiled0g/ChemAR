@@ -46,7 +46,7 @@
     overlayCamera.add(directionalLight);
 
     var molecule = new THREE.Molecule();
-    molecule.loadAsync('models/molecule', {  }, function () {
+    molecule.loadAsync('models/molecule.json', {  }, function () {
         // We'll be telling the object when to update its matrix,
         // based on what the detector finds...
         // ...so, don't do it unless we tell you to!
