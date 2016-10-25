@@ -93,7 +93,7 @@
 		.then(function(devices) {
 			var deviceId = null;
 			devices.forEach(function(device){ if(device.label.indexOf('back') >= 0) deviceId=device.deviceId; });
-			navigator.getUserMedia(video: { optional: [{ sourceId: "b3dadc3dca7e0e2ef44bf8aa6c2910ca9b35482fe17b3a82b93bfca38b770ab7" }]}, function (stream) {
+			navigator.getUserMedia({video: { optional: [{ sourceId: deviceId }]}}, function (stream) {
 	    	input = $('#inputStream')[0];
 	    	input.src = window.URL.createObjectURL(stream);
 
