@@ -97,7 +97,6 @@
 	    	input = $('#inputStream')[0];
 	    	input.src = window.URL.createObjectURL(stream);
 				window.ss = stream;
-				input = $('#inputStream')
 
 	        // Start the animation loop (see below)
 	    	jsFrames.start();
