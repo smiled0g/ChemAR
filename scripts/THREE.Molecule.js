@@ -28,7 +28,7 @@ THREE.Molecule.prototype.loadAsync = function (url, data, loadedCallback) {
 		return new THREE.Vector3().addVectors(a, b);
 	}
 
-	$.post(url, data, function (result) {
+	$.get(url, data, function (result) {
 		var atoms = result.Atoms;
 		for (var i = 0; i < atoms.length; i++) {
 			var atom = atoms[i];
