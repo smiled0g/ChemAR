@@ -13,8 +13,8 @@
         $("#debugCanvas").show();
     }
 
-    var width = 800;
-    var height = 600;
+    var width = 1280;
+    var height = 720;
 
 		$('#inputStream, #inputImage, #inputCapture, #debugCanvas')
 			.attr('width', width)
