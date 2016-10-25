@@ -13,7 +13,7 @@
         $("#debugCanvas").show();
     }
 
-    var width = 800;
+    var width = 1200;
     var height = 800;
 
 		$('#inputStream, #inputImage, #inputCapture, #debugCanvas')
